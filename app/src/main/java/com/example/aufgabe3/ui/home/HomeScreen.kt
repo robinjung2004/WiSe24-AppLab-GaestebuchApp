@@ -1,6 +1,8 @@
 package com.example.aufgabe3.ui.home
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
@@ -12,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.aufgabe3.model.BookingEntry
 import com.example.aufgabe3.viewmodel.SharedViewModel
+import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,16 +43,32 @@ fun HomeScreen(
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            // TODO inform the user if no bookingsEntries otherwise LazyColumn for bookingsEntries
+            if (bookingsEntries.isEmpty()) {
+                Text(
+                    text = "No bookings yet",
+                    modifier = Modifier.padding(16.dp)
+                )
+            } else {
+                LazyColumn {
+                    items(bookingsEntries) { booking ->
+                        BookingEntryItem(
+                            booking = booking,
+                            onDeleteClick = { sharedViewModel.deleteBookingEntry(booking) }
+                        )
+                        }
+                    }
+                }
+            }
         }
     }
-}
+
 
 @Composable
 fun BookingEntryItem(
     booking: BookingEntry,
     onDeleteClick: () -> Unit
 ) {
+    val dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy")
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -64,11 +83,11 @@ fun BookingEntryItem(
                 modifier = Modifier.weight(1f)
             ) {
                 Text(
-                    text = // TODO display booking name,
+                    text = booking.name,
                     style = MaterialTheme.typography.titleMedium
                 )
                 Text(
-                    text = // TODO display date in right format,
+                    text = "${booking.arrivalDate.format(dateFormatter)} - ${booking.departureDate.format(dateFormatter)}",
                     style = MaterialTheme.typography.bodyMedium
                 )
             }

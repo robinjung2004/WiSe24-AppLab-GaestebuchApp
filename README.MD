@@ -1,4 +1,4 @@
-# Bewertungsschema für die Programmieraufgabe
+# Programmieraufgabe 5 im Rahmen des Labors für App Entwicklung
 
 **Gesamtpunktzahl: 10 Punkte**
 
@@ -14,7 +14,7 @@ Es soll eine Android-App mit Jetpack Compose entwickeln, die folgende Funktionen
 
 ## Bewertungskriterien und Punkteverteilung
 
-### 1. `BookingEntry.kt` (1 Punkt)
+### 1. `BookingEntry.kt` (1 Punkt) 
 
 - **Korrekte Implementierung der Datenklasse** (1 Punkt)
     - Attribute:
@@ -27,7 +27,7 @@ Es soll eine Android-App mit Jetpack Compose entwickeln, die folgende Funktionen
 ### 2. `AddScreen.kt` (4,5 Punkte)
 
 - **Implementierung des `DateRangePickerModal`** (2,5 Punkte)
-    - **Methode für den Dialog implementieren** (1 Punkt): Die Methode `DateRangePickerModal` soll den Dialog zur Datumsauswahl anzeigen.
+    - **Methode für den Dialog implementieren** (1 Punkt): Die Methode `DateRangePickerModal` soll den Dialog zur Datumsauswahl anzeigen. 
     - **Logik zur Anzeige des Dialogs implementieren** (0,5 Punkte): Korrekte Integration des Dialogs in den `AddScreen`.
     - **Konvertierung der ausgewählten Long-Werte in `LocalDate`** (0,5 Punkte): Umwandlung der Werte und Speicherung in den entsprechenden Variablen.
     - **Error Handling** (0,5 Punkte): Validierung für fehlende Eingaben oder ungültige Daten.
@@ -50,7 +50,7 @@ Es soll eine Android-App mit Jetpack Compose entwickeln, die folgende Funktionen
 
 ---
 
-### 4. `SharedViewModel.kt` (1,5 Punkte)
+### 4. `SharedViewModel.kt` (1,5 Punkte) :done
 
 - **`addBookingEntry`-Methode implementieren** (1 Punkt): Hinzufügen neuer Einträge zur Liste.
 - **`deleteBookingEntry`-Methode implementieren** (0,5 Punkte): Entfernen von Einträgen aus der Liste.
